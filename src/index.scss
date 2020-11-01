@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&display=swap");
+
+html {
+  height: 100%;
+  width: 100%;
+  color: #393e46;
+  background-color: #e9e8dd;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  font-family: "Palanquin Dark", sans-serif;
+}
+
+.unselectable {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+button {
+  &:focus,
+  &:active,
+  &:focus:active {
+    outline: none;
+  }
+  @extend .unselectable;
+}

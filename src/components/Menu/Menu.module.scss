@@ -1,0 +1,62 @@
+@import "../../index";
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #8b8b84;
+  padding: 0.5vh 1.5vh;
+  border-bottom: 0.4vh solid #777777;
+  span {
+    color: #dddddd;
+
+    @extend .unselectable;
+  }
+}
+
+.title {
+  font-size: 3vh;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.category {
+  cursor: pointer;
+  font-size: 2.75vh;
+  margin-right: 5.5vh;
+
+  @extend .unselectable;
+}
+
+.settingsCategory {
+  @extend .category;
+  text-align: end;
+  margin-right: 1.5vh;
+}
+
+.selected {
+  color: #cdab2d;
+  &:hover {
+    color: #c48e48;
+  }
+}
+
+.unselected {
+  &:hover {
+    color: #cdab2d;
+  }
+}
+
+.settingsUnselected {
+  @extend .unselected;
+  color: #525c65;
+}
+
+svg {
+  margin-right: 0.75vh;
+}

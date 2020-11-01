@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  width: 97.5%;
+}
+
+.fadeAnimation {
+  transition: transform 0.5s ease;
+  &:hover {
+    transform: scale(1.025);
+  }
+}
+
+.imgWrapper {
+  flex-basis: 40%;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  svg {
+    color: #9ea6a2;
+    display: block;
+    margin: auto;
+    font-size: 32.5vh;
+
+    @extend .fadeAnimation;
+  }
+}
+
+.content {
+  flex: 1;
+  margin-left: 2.5vh;
+}
+
+.image {
+  width: 100%;
+  @extend .fadeAnimation;
+}
+
+.title {
+  line-height: 1.1;
+  font-size: 4.5vh;
+  font-weight: 600;
+  margin-bottom: 0.5vh;
+
+  a {
+    &:link {
+      color: initial;
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: initial;
+    }
+
+    @extend .selection;
+  }
+}
+
+.metaInfo {
+  line-height: 1.15;
+  font-size: 2.6vh;
+  color: #707070;
+}
+
+.authorDate {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.6vh;
+  color: #606060;
+
+  span {
+    @extend .selection;
+  }
+}
+
+.source {
+  display: flex;
+  justify-content: flex-end;
+
+  @extend .selection;
+}
+
+.desc {
+  margin: 1vh 0;
+  line-height: 1.25;
+  font-size: 2.75vh;
+
+  @extend .selection;
+}
+
+.selection {
+  &::selection {
+    background: #d0d0d0;
+  }
+}

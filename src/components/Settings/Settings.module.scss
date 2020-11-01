@@ -1,0 +1,108 @@
+@import "../../index";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  background: #f7f7f7;
+  padding: 1vh 2.5vh;
+
+  @extend .unselectable;
+}
+
+.title {
+  font-size: 4.25vh;
+  font-weight: 600;
+  border-bottom: 0.8vh double;
+}
+
+.heading {
+  font-size: 3.25vh;
+}
+
+.choicesContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  button {
+    cursor: pointer;
+    border: 0.35vh solid #707070;
+  }
+}
+
+.letterBtn {
+  margin: 0.45vh;
+  font-size: 2.75vh;
+  width: 7vh;
+
+  @extend .unselected;
+}
+
+.countryBtn {
+  margin: 0.35vh;
+  font-size: 2vh;
+
+  @extend .unselected;
+}
+
+.unselected {
+  background: #ececec;
+  &:hover {
+    background: #c0c0c0;
+  }
+}
+
+.selected {
+  background: #c0c0c0;
+  &:hover {
+    background: #a0a0a0;
+  }
+}
+
+.warning {
+  font-size: 3.25vh;
+  line-height: 1;
+  color: #993300;
+}
+
+.displayRows {
+  flex-direction: column;
+}
+
+.advice {
+  font-size: 2.5vh;
+  color: #8b8378;
+}
+
+.bottom {
+  height: 22vh;
+  font-size: 3.5vh;
+  line-height: 1.4;
+}
+
+.backBtn {
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 4vh;
+  padding: 0.75vh 0.6vh 0.5vh 1.3vh;
+  color: #505050;
+  border: 0.4vh solid #707070;
+  @extend .unselected;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.label {
+  margin-top: 2.3vh;
+  border-top: 0.8vh double;
+  font-weight: 600;
+}
+
+.info {
+  color: #525c65;
+  line-height: 0.9;
+  font-size: 3.5vh;
+}
