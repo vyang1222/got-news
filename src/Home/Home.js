@@ -39,12 +39,11 @@ const Home = (props) => {
         <FontAwesomeIcon icon={faSignInAlt} />
       </button>
       <div className={styles.misc}>
-        developed by vyang1222 -{" "}
+        {"developed by vyang1222 - "}
         <a href="https://github.com/vyang1222/got-news" rel="noopener noreferrer" target="_blank">
           about this project
         </a>
-        {"\n"}
-        icons made by{" "}
+        {"\nicons made by "}
         <a href="https://www.flaticon.com/authors/freepik" rel="noopener noreferrer" target="_blank">
           Freepik
         </a>{" "}
