@@ -13,8 +13,8 @@
 Each article contains its headline, author, published date, source, description, and image. Images that cannot be found or are inaccessible (error when loading image) display a placeholder icon. Only metadata that can be found (not null) is displayed. Clicking on either the headline or the image opens the link to the article in a different tab. <br>
 
 ## Notes
-- If the request was not successful (error status), the error is displayed, along with steps to take.
-- Changing countries in the middle of a search will reflect that change upon completion of the search.
+- If the request was not successful (error status), the error is displayed, along with steps to take. Most likely, this would be a rateLimited error. 
+- Changing countries or the endpoint in the middle of a search will *not* reflect that change until the search has been completed. 
 
 <br>
 
