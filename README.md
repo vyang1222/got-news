@@ -5,8 +5,8 @@
 
 
 ## Features
--	Filter news by category (entertainment, sports, technology), country, and/or search term
-- Read through pages of articles (20 articles per page)
+-	Filter news by endpoint (top, all), category (entertainment, sports, technology), country, and/or search term
+- Read through pages of articles (20 articles per page) sorted by date
 -	Results of filter or search displayed: total results and fetch time
 -	Publication date displayed relative to the current time if the article was recently published
 
@@ -14,7 +14,7 @@ Each article contains its headline, author, published date, source, description,
 
 ## Notes
 - If the request was not successful (error status), the error is displayed, along with steps to take. Most likely, this would be a rateLimited error. 
-- Changing countries or the endpoint in the middle of a search will *not* reflect that change until the search has been completed. 
+- Changing countries or the endpoint in the middle of a search will *not* successfully reflect that change until the search has been completed. 
 
 <br>
 
