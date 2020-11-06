@@ -14,7 +14,7 @@ let results = {
   totalResults: "",
   articles: [],
 };
-// cache results of request to sources endpoint.
+// cache results of request to sources endpoint (for search).
 let cachedSources = "";
 // no results: handle case of error code "parametersMissing" when no sources are returned from the sources endpoint
 const noResults = {
@@ -139,7 +139,7 @@ const getSearchedNews = async (endpoint_, country, qParam, page, categories) => 
   return getPage(1);
 };
 
-/* ------ HELPER METHOD ------ */
+/* ------ HELPER METHODS ------ */
 
 // get parameters for requests with 1 category
 const getParams1 = async (endpoint_, country, category, qParam, page) => {
