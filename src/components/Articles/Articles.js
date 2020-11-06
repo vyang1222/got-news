@@ -21,6 +21,8 @@ const Articles = (props) => {
       api.getNews(req, endpoint).then(
         (data) => {
           updateData(data);
+          // measure performance for getting results in seconds
+          updateTime((performance.now() - start) / 1000);
         },
         // handle error
         (error) => {
@@ -40,10 +42,6 @@ const Articles = (props) => {
           setErrMsg(code + " error: " + msg);
         }
       );
-    }
-    // measure performance for getting results
-    if (req.category !== "search" || req.categories.length > 0) {
-      updateTime(performance.now() - start);
     }
   }, [req, endpoint]);
 
@@ -83,7 +81,7 @@ const Articles = (props) => {
     if (data.totalResults === 0 || data.articles.length === 0) {
       return "found no results.";
     }
-    return `found ${data.totalResults} results ${getCategories()} (${getTime()} ms).`;
+    return `found ${data.totalResults} results ${getCategories()} (${getTime()} seconds)`;
   };
 
   return (

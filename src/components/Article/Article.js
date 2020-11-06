@@ -14,6 +14,7 @@ const msInSecond = 1000;
 
 const Article = (props) => {
   const { article } = props;
+  console.log(article);
   const { source, author, title, url, urlToImage, publishedAt } = article;
   let { description } = article;
   description = description !== null && description.includes("�") ? "" : description;
