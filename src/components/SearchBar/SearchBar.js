@@ -38,6 +38,8 @@ const SearchBar = (props) => {
     updateReq({ ...req, category: "", q: searchTerm, page: 1, categories: choices });
     // send user to top of the page after search
     document.getElementById("articles").scrollTop = 0;
+    // hide categories dropdown
+    document.getElementById("dropdown").style.display = "none";
   };
 
   // categories user can select from

@@ -4,11 +4,22 @@ import styles from "./PageBar.module.scss";
 
 const PageBar = (props) => {
   const { maxPage, req, updateReq } = props;
+  const currPage = req.page;
 
-  // array represents page numbers from 1 to maxPage
-  const pages = Array(maxPage)
-    .fill()
-    .map((_, i) => i + 1);
+  // array represents 10 pages, similar to the way Google pages through results
+  const getPages = () => {
+    if (currPage <= 6) {
+      return Array(Math.min(maxPage, 10))
+        .fill()
+        .map((_, i) => i + 1);
+    } else {
+      const arr = [];
+      for (let i = currPage - 5; i <= Math.min(maxPage, currPage + 4); i++) {
+        arr.push(i);
+      }
+      return arr;
+    }
+  };
 
   // update request state upon user selection of new page
   const select = (page) => {
@@ -19,7 +30,7 @@ const PageBar = (props) => {
 
   // pages the user can select from
   const buttons = () => {
-    return pages.map((page) => (
+    return getPages().map((page) => (
       <button
         key={uniqid()}
         onClick={() => select(page)}

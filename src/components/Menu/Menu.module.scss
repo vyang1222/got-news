@@ -25,11 +25,19 @@
   align-items: center;
 }
 
+.endpoint {
+  @extend .choice;
+  margin-right: 3vh;
+}
+
 .category {
+  @extend .choice;
+  margin-right: 5vh;
+}
+
+.choice {
   cursor: pointer;
   font-size: 2.75vh;
-  margin-right: 5.5vh;
-
   @extend .unselectable;
 }
 
@@ -39,6 +47,7 @@
   margin-right: 1.5vh;
 }
 
+// categories
 .selected {
   color: #cdab2d;
   &:hover {
@@ -49,6 +58,20 @@
 .unselected {
   &:hover {
     color: #cdab2d;
+  }
+}
+
+// endpoints
+.selected2 {
+  color: #dddddd;
+  &:hover {
+    color: #eeeeee;
+  }
+}
+
+.unselected2 {
+  &:hover {
+    color: #dddddd;
   }
 }
 

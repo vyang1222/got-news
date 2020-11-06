@@ -56,8 +56,10 @@ const Article = (props) => {
 
   const getAuthor = () => {
     // handle special case (Buzzfeed) to parse the author correctly
-    if (source.id === "buzzfeed") {
-      return JSON.parse(author)[0].name;
+    if (source.id === "buzzfeed" && author.charAt(0) === "[") {
+      const startIndex = author.indexOf("name") + 7;
+      const endIndex = author.indexOf('"', startIndex);
+      return author.substring(startIndex, endIndex);
     }
     return author;
   };

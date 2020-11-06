@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getCountryCode, getAlphabet, getCountryPairings } from "./countries.js";
+// import { getLanguageCode, getLanguagePairings } from "./languages.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import uniqid from "uniqid";
@@ -13,12 +14,26 @@ const Settings = (props) => {
 
   const [letterChoice, setLetter] = useState("");
   const [countryChoice, setCountry] = useState("United States of America"); // default country is USA
+  // const [languageChoice, setLanguage] = useState("English"); // default language is English
   const selectingLetter = letterChoice.length === 0;
 
   // update letterChoice state upon user selection of letter, and switch over to country name
   const selectLetter = (letter) => {
     setLetter(letter);
   };
+
+  // update languageChoice state upon user selection of choice
+  // const selectLanguage = (newLanguage) => {
+  //   setLanguage(newLanguage);
+  //   // it's unnecessary to update req and make a new HTTP request if country has not been changed
+  //   const newLanguageCode = getLanguageCode(newLanguage);
+  //   if (newLanguageCode !== req.language) {
+  //     // reset page to first page in the case of coming from a page !== 1
+  //     updateReq({ ...req, language: newLanguageCode, page: 1 });
+  //     // send user to top of the page after selection
+  //     document.getElementById("articles").scrollTop = 0;
+  //   }
+  // };
 
   // update countryChoice state upon user selection of choice
   const selectCountry = (newCountry) => {
@@ -28,8 +43,11 @@ const Settings = (props) => {
     if (newCountryCode !== req.country) {
       // reset page to first page in the case of coming from a page !== 1
       updateReq({ ...req, country: newCountryCode, page: 1 });
-      // send user to top of the page after selection
-      document.getElementById("articles").scrollTop = 0;
+      // send user to top of the page after selection IF not selecting
+      if (req.category !== "search") {
+        console.log("HERE");
+        document.getElementById("articles").scrollTop = 0;
+      }
     }
   };
 
@@ -48,23 +66,29 @@ const Settings = (props) => {
         </button>
       ));
     }
-    const countries = [...getCountryPairings(letterChoice).keys()];
-    if (countries.length === 0) {
+    const filteredChoices = [...getCountryPairings(letterChoice).keys()];
+    if (filteredChoices.length === 0) {
       // indicate to user that no countries start with this letter
       return (
         <div className={styles.warning}>
-          no countries available that start with the letter {letterChoice} — choose again.
+          no country available that starts with the letter {letterChoice} — choose again.
         </div>
       );
     }
-    // buttons for each country name returned from getCountryPairings()
-    return [...getCountryPairings(letterChoice).keys()].map((country) => (
+    return getChoices(filteredChoices);
+  };
+
+  // get choices based on option
+  const getChoices = (filteredChoices) => {
+    const isSelected = (choice) => choice === countryChoice;
+    // buttons for each choice
+    return filteredChoices.map((choice) => (
       <button
         key={uniqid()}
-        onClick={() => selectCountry(country)}
-        className={`${styles.countryBtn} ${country === countryChoice ? styles.selected : ""}`}
+        onClick={() => selectCountry(choice)}
+        className={`${styles.choiceBtn} ${isSelected(choice) ? styles.selected : ""}`}
       >
-        {country}
+        {choice}
       </button>
     ));
   };
@@ -73,8 +97,8 @@ const Settings = (props) => {
     <div id="settings-container" className={styles.container}>
       <div>
         <div className={styles.title}>settings</div>
-        <div className={styles.heading}>change the country:</div>
-        <div className={styles.advice}>{selectingLetter ? "(country name starts with)" : ""}</div>
+        <div className={styles.heading}>change the country</div>
+        <div className={styles.advice}>{selectingLetter ? `(country starts with)` : ""}</div>
         <div className={`${styles.choicesContainer} ${selectingLetter ? "" : styles.displayRows}`}>{choices()}</div>
       </div>
       <div className={styles.bottom}>

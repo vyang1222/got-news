@@ -6,7 +6,7 @@ import styles from "./Articles.module.scss";
 import * as api from "../../api.js";
 
 const Articles = (props) => {
-  const { req, updateReq } = props;
+  const { req, updateReq, endpoint } = props;
   const [data, updateData] = useState({
     articles: [],
   });
@@ -18,7 +18,7 @@ const Articles = (props) => {
     let start = performance.now();
     // prevent rerequests in case of user changing country in the middle of a search
     if ((req.categories.length !== 0 || req.category !== "") && (req.category !== "search" || req.q !== "")) {
-      api.getNews(req).then(
+      api.getNews(req, endpoint).then(
         (data) => {
           updateData(data);
         },
@@ -45,7 +45,7 @@ const Articles = (props) => {
     if (req.category !== "search" || req.categories.length > 0) {
       updateTime(performance.now() - start);
     }
-  }, [req]);
+  }, [req, endpoint]);
 
   // returns time in milliseconds, rounded to 2 decimal places
   const getTime = () => {
@@ -63,7 +63,7 @@ const Articles = (props) => {
       return "";
     }
 
-    let categoryString = "in ";
+    let categoryString = "found in ";
 
     if (categories.length > 1) {
       categoryString += categories[0];
@@ -83,7 +83,7 @@ const Articles = (props) => {
     if (data.totalResults === 0 || data.articles.length === 0) {
       return "found no results.";
     }
-    return `found ${data.totalResults} results ${getCategories()}(${getTime()} ms).`;
+    return `found ${data.totalResults} results ${getCategories()} (${getTime()} ms).`;
   };
 
   return (

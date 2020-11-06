@@ -6,6 +6,10 @@
   font-weight: 600;
 }
 
+.endpoint {
+  color: #555555;
+}
+
 .desc {
   text-align: center;
   font-size: 4.5vh;
@@ -81,4 +85,11 @@
       color: #3b6aa0;
     }
   }
+}
+
+.bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5vh;
 }
