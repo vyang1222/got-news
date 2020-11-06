@@ -15,7 +15,7 @@ Each article contains its headline, author, published date, source, description,
 ## Notes
 - The "all" endpoint works best with news from the US.
 - If the request was not successful (error status from News API), the error is displayed, along with steps to take. Most likely, this would be a rateLimited error. 
-- Changing countries or the endpoint in the middle of a search will *not* successfully reflect that change until the search has been completed.
+- Changing countries and/or the endpoint in the middle of a search will *not* successfully reflect that change until the search button has been clicked. Ideally, make these changes, if necessary, before or after a search.
 
 <br>
 
