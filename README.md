@@ -5,10 +5,10 @@
 
 
 ## Features
--	Filter news by endpoint (top, all), category (entertainment, sports, technology), country, and/or search term
-- Read through pages of articles (20 articles per page) sorted by date
--	See results of filter or search (total results and fetch time)
--	See publication date relative to the current time if the article was recently published
+-	Filter news by endpoint (top, all), category (entertainment, sports, technology), country, and/or search term.
+- Read through pages of articles (20 articles per page) sorted by date.
+-	See results of filter or search (total results and fetch time).
+-	See publication date relative to the current time if the article was recently published.
 
 Each article contains its headline, author, published date, source, description, and image. Images that cannot be found or are inaccessible (e.g. error 404 when loading image) display a placeholder icon. Only metadata that can be found (not null) is displayed. Clicking on either the headline or the image opens the link to the article in a different tab. <br>
 
@@ -20,7 +20,6 @@ Each article contains its headline, author, published date, source, description,
 <br>
 
 ## Development
-
-- Run `npm install` to install the packages.
-- Run `npm start` to run the app in development mode. 
-- Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Run `npm install` to install the dependencies.
+2. Create a `.env` file in the root directory and provide your News API key (get one for free [here](https://newsapi.org/register)) to a `REACT_APP_API_KEY` variable.
+3. Run `npm start` to start the app in development mode.
