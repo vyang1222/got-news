@@ -1,5 +1,5 @@
 ## Goals:
--	Simplistic, straightforward design
+-	Simplistic, intuitive design
 -	Robustness 
 -	Performance (e.g. prevent redundant requests, minimize re-renders) 
 
